@@ -6,7 +6,6 @@
 namespace events::handlers 
 {
 	template<class TBase>
-	struct AbstractInnerHolder
 	{
 		virtual ~AbstractInnerHolder() {}
 
@@ -16,9 +15,6 @@ namespace events::handlers
 			return const_cast<AbstractInnerHolder<TBase>&>(*this).get();
 		}
 	};
-
-
-	template<class TBase, class TInner>
 	struct TInnerHolder : public AbstractInnerHolder<TBase>
 	{
 		using TInnerObject = typename ObjectSaver<TInner>::TObject;
